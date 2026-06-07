@@ -14,7 +14,7 @@ def get_scores(args: list[str]) -> list[int]:
 
     for arg in args:
         try:
-            scores.append(int(arg))
+            scores += [int(arg)]
         except ValueError:
             print(f"Invalid parameter: '{arg}'")
     return scores

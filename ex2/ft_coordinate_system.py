@@ -68,7 +68,7 @@ def main() -> None:
 
     distance: float = distance_between_points(first_Pos, second_pos)
     print(
-        "Distance between the sets of coordinates:"
+        "Distance between the 2 sets of coordinates: "
         f"{round(distance, 4)}"
     )
 

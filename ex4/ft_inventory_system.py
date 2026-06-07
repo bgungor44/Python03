@@ -74,11 +74,17 @@ def main() -> None:
 
     inventory: dict[str, int] = parse_inventory(sys.argv[1:])
 
-    display_inventory_stats(inventory)
 
     if inventory != {}:
+        display_inventory_stats(inventory)
         inventory.update({"magic_item": 1})
         print(f"Updated inventory: {inventory}")
+    else:
+        print(f"Each parameter must follow this format:")
+        print(
+            f"python3 ft_inventory_system.py <item_name>:<quantity>",
+            f"<item_name2>:<quantity>"
+            )
 
 
 if __name__ == "__main__":
