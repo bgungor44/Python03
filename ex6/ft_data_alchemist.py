@@ -33,8 +33,10 @@ def main() -> None:
         name: random.randint(0, 1000) for name in capitalized_players
     }
 
-    average: float = round(sum(scores.values()) / len(scores), 2)
-
+    average: float = round(
+        sum([scores[name] for name in scores]) / len(scores),
+        2
+    )
     high_scores: dict[str, int] = {
         name: score for name, score in scores.items() if score > average
     }
