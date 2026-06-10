@@ -37,10 +37,15 @@ def get_all_achievements(players: dict[str, set[str]]) -> set[str]:
 
 
 def get_common_achievemenets(players: dict[str, set[str]]) -> set[str]:
-    common: set[str] = players["Alice"]
+    first: bool = True
+    common: set[str] = players[name]
 
     for name in players:
-        common = common.intersection(players[name])
+        if first:
+            common = players[name]
+            first = False
+        else:
+            common = common.intersection(players[name])
     return common
 
 
@@ -50,7 +55,7 @@ def print_unique_achievements(players: dict[str, set[str]]) -> None:
         for other_name in players:
             if other_name != name:
                 others = others.union(players[other_name])
-        print(f"Only {name} has: {players[name].difference(others)}")
+        print(f"Only {name} has: {players[name].difference(others)}")# A.difference(b) = a da olanlardan b de olanları çıkar.
 
 
 def print_missing_achievements(
